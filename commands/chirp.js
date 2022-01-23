@@ -33,7 +33,22 @@ module.exports = {
 	async execute(interaction) {
 		const user = interaction.options.getUser('target');
 		let randoChirp = chirps[Math.floor(Math.random() * chirps.length)]
-		randoChirp = randoChirp.replace(/USER/g, user ? user.id : interaction.user.id)
+		if ( user )
+		{
+			if ( user.id === 'TheGuardianG13#7157' )
+			{
+				randoChirp = "The Guardian thinks very highly of <@" + interaction.user.id + ">!";
+			}
+			else
+			{
+				randoChirp = randoChirp.replace(/USER/g, user.id);
+			}
+		}
+		else
+		{
+			randoChirp = randoChirp.replace(/USER/g, interaction.user.id);
+		}
+		
 		return interaction.reply(randoChirp);
 	},
 };
