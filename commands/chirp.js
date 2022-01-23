@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
-const chirps = 
-[
+const chirps = [
 	"<@USER>\nYou’re made of spare parts, aren’t you, bud?",
 	"<@USER>\nI wish you weren’t so fuckin’ awkward, bud.",
 	"<@USER>\nYour life’s so fucking pathetic, I ran a charity 15k to raise awareness for it.",
@@ -26,29 +25,21 @@ const chirps =
 	"<@USER>\nYour life’s so pathetic, I get a Canadian tax credit just for spending time with you, ya fuckin’ loser!"
 ];
 
-module.exports = 
-{
+module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('chirp')
 		.setDescription('Chirps at people')
 		.addUserOption(option => option.setName('target').setDescription('Who ya chirping at?')),
-	async execute(interaction) 
-	{
+	async execute(interaction) {
 		const user = interaction.options.getUser('target');
 		let randoChirp = chirps[Math.floor(Math.random() * chirps.length)]
-		if ( user )
-		{
-			if ( user.tag === 'TheGuardianG13#7157' )
-			{
+		if (user != undefined) {
+			if (user.tag === 'TheGuardianG13#7157') {
 				randoChirp = "The Guardian thinks very highly of <@" + interaction.user.id + ">!";
-			}
-			else
-			{
+			} else {
 				randoChirp = randoChirp.replace(/USER/g, user.id);
 			}
-		}
-		else
-		{
+		} else {
 			randoChirp = randoChirp.replace(/USER/g, interaction.user.id);
 		}
 		
