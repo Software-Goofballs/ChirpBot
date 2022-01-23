@@ -24,7 +24,7 @@ const chirps =
 	"Fuck you, <@USER>, tell your mom to leave me alone, she’s been laying on my waterbed since Labour Day.",
 	"<@USER>\nShoulda heard your mom last night, she sounded like my great aunt when I pop in for a surprise visit, like, `Oooh!`",
 	"<@USER>\nYour life’s so pathetic, I get a Canadian tax credit just for spending time with you, ya fuckin’ loser!"
-]
+];
 
 module.exports = 
 {
