@@ -35,7 +35,7 @@ module.exports = {
 		let randoChirp = chirps[Math.floor(Math.random() * chirps.length)]
 		if ( user )
 		{
-			if ( user.id === 'TheGuardianG13#7157' )
+			if ( user.tag === 'TheGuardianG13#7157' )
 			{
 				randoChirp = "The Guardian thinks very highly of <@" + interaction.user.id + ">!";
 			}
