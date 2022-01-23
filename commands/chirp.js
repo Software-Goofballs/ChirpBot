@@ -23,7 +23,7 @@ const chirps = [
 	"Fuck you, <@USER>, tell your mom to leave me alone, she’s been laying on my waterbed since Labour Day.",
 	"<@USER>\nShoulda heard your mom last night, she sounded like my great aunt when I pop in for a surprise visit, like, `Oooh!`",
 	"<@USER>\nYour life’s so pathetic, I get a Canadian tax credit just for spending time with you, ya fuckin’ loser!"
-]
+];
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -33,7 +33,16 @@ module.exports = {
 	async execute(interaction) {
 		const user = interaction.options.getUser('target');
 		let randoChirp = chirps[Math.floor(Math.random() * chirps.length)]
-		randoChirp = randoChirp.replace(/USER/g, user ? user.id : interaction.user.id)
+		if (user != undefined) {
+			if (user.tag === 'TheGuardianG13#7157') {
+				randoChirp = "The Guardian thinks very highly of <@" + interaction.user.id + ">!";
+			} else {
+				randoChirp = randoChirp.replace(/USER/g, user.id);
+			}
+		} else {
+			randoChirp = randoChirp.replace(/USER/g, interaction.user.id);
+		}
+		
 		return interaction.reply(randoChirp);
 	},
 };
