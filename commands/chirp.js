@@ -25,6 +25,32 @@ const chirps = [
 	"<@USER>\nYour life’s so pathetic, I get a Canadian tax credit just for spending time with you, ya fuckin’ loser!"
 ];
 
+const niceChirps = [
+	"<@USER>\nYou’re made of everything nice, aren’t you, bud?",
+	"<@USER>\nI wish you a nice day, bud.",
+	"<@USER>\nYour life’s so freaking special. We are blessed to have you in ours.",
+	"<@USER>: I’m coming, <@934870321511678062>!\n<@934870321511678062>: I'm glad you are going to be able to make it over. You are a real gem friend.",
+	"<@934870321511678062>: Come with me, see what happens\n<@USER>: Oh yeah? What’s gonna happen, <@934870321511678062>?\n<@934870321511678062>: Three things: we'll go eat, catch a movie, and then get ice cream.",
+	"<@USER>\nGive me a high five, champ!",
+	"<@USER>\nOh, I just have nothing but nice things to say about you.",
+	"Love you, <@USER>! My life is so wonderful with you in it!",
+	"Hi, <@USER>! Your mom must be so proud to have a great child like you.",
+	"<@USER>\nI see your muscles have really toned. Those workouts are really doing you good, champ.",
+	"<@USER>\nOh, James Stewart, what a wonderful life it is to know you!",
+	"<@USER>\nGive yer mom a hug!",
+	"<@USER>\nYou are so nice, Canadians look to you for inspiration.",
+	"Hi, <@USER>, your mom must cry tears of joy for how proud she is of you.",
+	"Hi, <@USER>. Tell your mom you love her over FaceTime tonight.",
+	"Hi, <@USER>, don't forget to brush your teeth every morning and night!",
+	"Hi, <@USER>, some days can be real hard so don't be afraid to have a good cry.",
+	"Hi, <@USER>, how about we got get KFC sometime? My treat.",
+	"Hi, <@USER>, your friendship really makes me want to live a better life.",
+	"Hi, <@USER>, we should go out and have some fun next Labor Day weekend.",
+	"Hi, <@USER>, I hope you are having a very pleasant day.",
+	"<@USER>\nI saw your mom last night. She said you are her favorite child.",
+	"<@USER>\nIf you ever find it hard to believe in yourself, I hope you can believe in the me that believes in you."
+];
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('chirp')
@@ -32,15 +58,18 @@ module.exports = {
 		.addUserOption(option => option.setName('target').setDescription('Who ya chirping at?')),
 	async execute(interaction) {
 		const user = interaction.options.getUser('target');
-		let randoChirp = chirps[Math.floor(Math.random() * chirps.length)]
-		if (user != undefined) {
-			if (user.tag === 'TheGuardianG13#7157') {
-				randoChirp = "The Guardian thinks very highly of <@" + interaction.user.id + ">!";
+		let randoChirp;
+		if (user == undefined) {
+			randoChirp = chirps[Math.floor(Math.random() * chirps.length)];
+			randoChirp = randoChirp.replace(/USER/g, interaction.user.id);
+		} else {
+			if (user.tag == 'TheGuardianG13#7157') {
+				randoChirp = niceChirps[Math.floor(Math.random() * niceChirps.length)];
+				randoChirp = randoChirp.replace(/USER/g, interaction.user.id);
 			} else {
+				randoChirp = chirps[Math.floor(Math.random() * chirps.length)];
 				randoChirp = randoChirp.replace(/USER/g, user.id);
 			}
-		} else {
-			randoChirp = randoChirp.replace(/USER/g, interaction.user.id);
 		}
 		
 		return interaction.reply(randoChirp);
