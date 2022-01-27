@@ -16,6 +16,6 @@ module.exports = {
 					.addChoice('Fuck', 'aww fuck aww fuck')
 				),
 	async execute(interaction) {		
-		return interaction.reply(${interaction.options.getString('command')});
+		return interaction.reply(interaction.options.getString('command'));
 	},
 };
