@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 const cheers = [
-	"yes yes yes yes YYYEEEEESSSSS!"
+	"yes yes yes yes yyyeeEEEESSSS!"
 ];
 
 module.exports = {
