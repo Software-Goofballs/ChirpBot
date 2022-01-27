@@ -5,12 +5,12 @@ module.exports = {
 		.setName('cheer')
 		.setDescription('Cheers at people')
 		.addStringOption(option =>
-				option
-					.setName('command')
-					.setRequired(true)
-					.addChoice('Yes', 'yes yes yes yes yyyeeEEEESSSS!')
-					.addChoice('Fuck', 'aww fuck aww fuck')
-				),
+			option.setName('command')
+				.setDescription('Cheer Command')
+				.setRequired(true)
+				.addChoice('Yes', 'yes yes yes yes yyyeeEEEESSSS!')
+				.addChoice('Fuck', 'aww fuck aww fuck')
+		),
 	async execute(interaction) {		
 		return interaction.reply(interaction.options.getString('command'));
 	},
