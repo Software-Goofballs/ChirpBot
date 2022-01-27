@@ -7,7 +7,14 @@ const cheers = [
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('cheer')
-		.setDescription('Cheers at people'),
+		.setDescription('Cheers at people')
+		.addStringOption(option =>
+				option
+					.setName('command')
+					.setRequired(true)
+					.addChoice('Yes', 'yes yes yes yes yyyeeEEEESSSS!')
+					.addChoice('Fuck', 'aww fuck aww fuck')
+				),
 	async execute(interaction) {
 		let randoCheer;
 		randoCheer = cheers[Math.floor(Math.random() * cheers.length)];
