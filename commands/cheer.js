@@ -15,11 +15,7 @@ module.exports = {
 					.addChoice('Yes', 'yes yes yes yes yyyeeEEEESSSS!')
 					.addChoice('Fuck', 'aww fuck aww fuck')
 				),
-	async execute(interaction) {
-		let randoCheer;
-		randoCheer = cheers[Math.floor(Math.random() * cheers.length)];
-		randoCheer = randoCheer.replace(/USER/g, interaction.user.id);
-		
-		return interaction.reply(randoCheer);
+	async execute(interaction) {		
+		return interaction.reply(${interaction.options.getString('command')});
 	},
 };
