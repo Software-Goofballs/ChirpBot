@@ -22,7 +22,10 @@ const chirps = [
 	"Fuck you, <@USER>, your breath’s so bad it gave me an existential crisis — it made me question my whole life.",
 	"Fuck you, <@USER>, tell your mom to leave me alone, she’s been laying on my waterbed since Labour Day.",
 	"<@USER>\nShoulda heard your mom last night, she sounded like my great aunt when I pop in for a surprise visit, like, `Oooh!`",
-	"<@USER>\nYour life’s so pathetic, I get a Canadian tax credit just for spending time with you, ya fuckin’ loser!"
+	"<@USER>\nYour life’s so pathetic, I get a Canadian tax credit just for spending time with you, ya fuckin’ loser!", 
+        "Eat another Baconator you fuckin walrus!", 
+        "Holy fuck, <@USER>, you look like you love a good slice. Did you get axed from the show and just start hammering slices or what? If the Cup was a slice, you think you'd work a little harder, you fuckin' pizza face?",
+        "Hey, go eat some fondue, you fuckin' manatee"
 ];
 
 const niceChirps = [
@@ -48,7 +51,8 @@ const niceChirps = [
 	"Hi, <@USER>, we should go out and have some fun next Labor Day weekend.",
 	"Hi, <@USER>, I hope you are having a very pleasant day.",
 	"<@USER>\nI saw your mom last night. She said you are her favorite child.",
-	"<@USER>\nIf you ever find it hard to believe in yourself, I hope you can believe in the me that believes in you."
+	"<@USER>\nIf you ever find it hard to believe in yourself, I hope you can believe in the me that believes in you.", 
+        "If you can be one thing, you should be efficient" 
 ];
 
 module.exports = {
