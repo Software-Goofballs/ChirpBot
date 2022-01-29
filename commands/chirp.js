@@ -13,14 +13,14 @@ module.exports = {
 		const chirpData = JSON.parse(fs.readFileSync(memory));
 		let randoChirp;
 		if (user == undefined) {
-			randoChirp = chirpData.chirps[Math.floor(Math.random() * chirps.length)];
+			randoChirp = chirpData.chirps[Math.floor(Math.random() * chirpData.chirps.length)];
 			randoChirp = randoChirp.replace(/USER/g, interaction.user.id);
 		} else {
 			if (user.tag == 'TheGuardianG13#7157') {
-				randoChirp = chirpData.niceChirps[Math.floor(Math.random() * niceChirps.length)];
+				randoChirp = chirpData.niceChirps[Math.floor(Math.random() * chirpData.niceChirps.length)];
 				randoChirp = randoChirp.replace(/USER/g, interaction.user.id);
 			} else {
-				randoChirp = chirpData.chirps[Math.floor(Math.random() * chirps.length)];
+				randoChirp = chirpData.chirps[Math.floor(Math.random() * chirpData.chirps.length)];
 				randoChirp = randoChirp.replace(/USER/g, user.id);
 			}
 		}

@@ -10,10 +10,10 @@ module.exports = {
 		.addStringOption(option => option.setName('chirp').setDescription('Enter the new chirp, using USER for replacable users').setRequired(true))
         .addBooleanOption(option => option.setName('nice').setDescription('Is this kind?')),
 	async execute(interaction) {
-		let chirp = interaction.options.getUser('chirp');
+		let chirp = interaction.options.getString('chirp');
         const nice = interaction.options.getBoolean('nice');
 		let chirpData = JSON.parse(fs.readFileSync(memory));
-        chirp.replace(/USER/g,"<@USER>")
+        chirp = chirp.replace(/USER/g,"<@USER>")
         if (nice) {
             chirpData.niceChirps.push(chirp);
         } else {
