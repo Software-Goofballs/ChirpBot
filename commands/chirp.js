@@ -19,6 +19,9 @@ module.exports = {
 			if (user.tag == 'TheGuardianG13#7157') {
 				randoChirp = chirpData.niceChirps[Math.floor(Math.random() * chirpData.niceChirps.length)];
 				randoChirp = randoChirp.replace(/USER/g, interaction.user.id);
+			} else if (interaction.user.tag == 'TheGuardianG13#7157') {
+				randoChirp = chirpData.niceChirps[Math.floor(Math.random() * chirpData.niceChirps.length)];
+				randoChirp = randoChirp.replace(/USER/g, user.id);
 			} else {
 				randoChirp = chirpData.chirps[Math.floor(Math.random() * chirpData.chirps.length)];
 				randoChirp = randoChirp.replace(/USER/g, user.id);
